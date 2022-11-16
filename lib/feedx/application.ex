@@ -13,7 +13,7 @@ defmodule Feedx.Application do
       {Phoenix.PubSub, name: Feedx.PubSub},
       {Finch, name: Feedx.Finch},
       FeedxWeb.Endpoint,
-      {FcFinch, []}
+      {FcFinch.Application, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

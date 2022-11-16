@@ -19,7 +19,7 @@ defmodule Feedx.MixProject do
   def application do
     [
       mod: {Feedx.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -32,6 +32,9 @@ defmodule Feedx.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # Web Server
+      # {:bandit, "~> 0.6"},
+      {:plug_cowboy, "~> 2.0"},
       # Web UI
       {:swoosh,                 "~> 1.3"},
       {:phoenix,                "~> 1.7.0-rc.0", override: true},
@@ -56,10 +59,10 @@ defmodule Feedx.MixProject do
       # Telemetry
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller,  "~> 1.0"},
+      {:ecto_psql_extras,  "~> 0.6"},
       # Fc
-      {:finch,  "~> 0.13"},
-      {:jason,  "~> 1.2"},
-      {:bandit, "~> 0.6"},
+      {:finch, "~> 0.13"},
+      {:jason, "~> 1.2"},
     ]
   end
 

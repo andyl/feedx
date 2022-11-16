@@ -599,13 +599,17 @@ Notes
 
 - [x] Bring over fc_finch library
 - [x] Test/Src navigation 
-- [ ] Start fc_finch application 
-- [ ] View fc_finch app with :observer 
-- [ ] View fc_finch app with dashboard 
-- [ ] Test fc_finch 
+- [x] Start fc_finch application 
+- [x] View fc_finch app with :observer 
+- [-] View fc_finch app with dashboard 
+- [x] Test fc_finch 
+- [x] Use FcFinch.get in iex 
 
 - [ ] Bring over api 
 - [ ] Export feeds 
 - [ ] Import feeds 
 
-- [ ] Bring over RSS reader and Job runner 
+- [ ] Bring over fc_rss 
+- [ ] Bring over fc_tesla 
+- [ ] Bring over feedex_job 
+

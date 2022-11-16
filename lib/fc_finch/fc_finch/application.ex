@@ -3,6 +3,20 @@ defmodule FcFinch.Application do
 
   use Application
 
+  def child_spec(_) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start, []},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
+  end
+
+  def start() do
+    start(:x, :y)
+  end
+
   @impl true
   def start(_type, _args) do
     children = [
