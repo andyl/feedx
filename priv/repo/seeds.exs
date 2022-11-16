@@ -1,9 +1,9 @@
 # Add application data
 # > mix run priv/repo/seeds.exs
 
-alias FeedexCore.Ctx.Account.{User, Folder, Register, ReadLog}
-alias FeedexCore.Ctx.News.{Feed, Post}
-alias FeedexCore.Repo
+alias Feedx.Ctx.Account.{User, Folder, Register, ReadLog}
+alias Feedx.Ctx.News.{Feed, Post}
+alias Feedx.Repo
 
 Repo.delete_all(ReadLog)
 Repo.delete_all(Register)
@@ -15,7 +15,7 @@ Repo.delete_all(User)
 Repo.insert(%User{
   name: "aaa",
   email: "aaa@aaa.com",
-  pwd_hash: User.pwd_hash("123456789012"),
+  hashed_password: User.pwd_hash("123456789012"),
   folders: [
     %Folder{
       name: "Elixir",
@@ -75,13 +75,13 @@ Repo.insert(%User{
 Repo.insert(%User{
   name: "bbb",
   email: "bbb@bbb.com",
-  pwd_hash: User.pwd_hash("123456789012"),
+  hashed_password: User.pwd_hash("123456789012"),
   }
 )
 
 Repo.insert(%User{
   name: "ccc",
   email: "ccc@ccc.com",
-  pwd_hash: User.pwd_hash("123456789012")
+  hashed_password: User.pwd_hash("123456789012")
   }
 )

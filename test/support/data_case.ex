@@ -16,14 +16,25 @@ defmodule Feedx.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Feedx.Repo
+  alias Feedx.Ctx.Account.{User, Folder, Register, ReadLog}
+  alias Feedx.Ctx.News.{Feed, Post}
+
+  require Ecto.Query
+
   using do
     quote do
       alias Feedx.Repo
+      alias Feedx.Ctx.Account
+      alias Feedx.Ctx.Account.{User, Folder, Register, ReadLog}
+      alias Feedx.Ctx.News
+      alias Feedx.Ctx.News.{Feed, Post}
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
       import Feedx.DataCase
+      import Feedx.Factory
     end
   end
 
@@ -55,4 +66,10 @@ defmodule Feedx.DataCase do
       end)
     end)
   end
+
+  def count(type) do
+    Ecto.Query.from(element in type, select: count(element.id))
+    |> Repo.one()
+  end
+
 end
