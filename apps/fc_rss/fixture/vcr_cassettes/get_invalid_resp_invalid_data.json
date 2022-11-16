@@ -1,0 +1,64 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://zzz.reddit.com/z/elir.rss"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Connection": "keep-alive",
+        "Location": "https://www.reddit.com/r/zzz/z/elir.rss",
+        "cache-control": "max-age=0, must-revalidate",
+        "X-Moose": "majestic",
+        "Accept-Ranges": "bytes",
+        "Date": "Thu, 20 May 2021 18:31:37 GMT",
+        "Via": "1.1 varnish",
+        "Set-Cookie": "csv=1; Max-Age=63072000; Domain=.reddit.com; Path=/; Secure; SameSite=None",
+        "Strict-Transport-Security": "max-age=15552000; includeSubDomains; preload",
+        "Server": "snooserv",
+        "transfer-encoding": "chunked"
+      },
+      "status_code": 301,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://www.reddit.com/r/zzz/z/elir.rss"
+    },
+    "response": {
+      "binary": false,
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><feed xmlns=\"http://www.w3.org/2005/Atom\" xmlns:media=\"http://search.yahoo.com/mrss/\"><category term=\"zzz\" label=\"r/zzz\"/><updated>2021-05-20T18:31:37+00:00</updated><id>/r/zzz/z/elir.rss</id><link rel=\"self\" href=\"https://www.reddit.com/r/zzz/z/elir.rss\" type=\"application/atom+xml\" /><link rel=\"alternate\" href=\"https://www.reddit.com/r/zzz/z/elir\" type=\"text/html\" /><title>zzz: private</title></feed>",
+      "headers": {
+        "Connection": "keep-alive",
+        "Content-Length": "442",
+        "Content-Type": "application/atom+xml; charset=UTF-8",
+        "x-ua-compatible": "IE=edge",
+        "x-frame-options": "SAMEORIGIN",
+        "x-content-type-options": "nosniff",
+        "x-xss-protection": "1; mode=block",
+        "cache-control": "max-age=0, must-revalidate",
+        "X-Moose": "majestic",
+        "Accept-Ranges": "bytes",
+        "Date": "Thu, 20 May 2021 18:31:37 GMT",
+        "Via": "1.1 varnish",
+        "Set-Cookie": "session_tracker=GLoqzqoJt73LDZ0qtO.0.1621535497784.Z0FBQUFBQmdwcXNKTkhHZVp3NmxTbFV0SWUzOEtEQ3NpYi1qWkxFbXZuWjM0UjAyN3ppeWZFdndOaHZHbDVuYkZ3VE5iWUY5empVWHBxd1NZa1h6V3FLSVVzTXViNzI3QU9sZG1Rd2lYV000T1UybXU2UUJBMWR5NHJ1ajRCNVJCc1JXMGhaMTdiMlQ; Domain=reddit.com; Max-Age=7199; Path=/; expires=Thu, 20-May-2021 20:31:37 GMT; secure; SameSite=None; Secure",
+        "Strict-Transport-Security": "max-age=15552000; includeSubDomains; preload",
+        "Server": "snooserv"
+      },
+      "status_code": 403,
+      "type": "ok"
+    }
+  }
+]

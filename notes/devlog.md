@@ -596,3 +596,16 @@ Notes
 - Rewriting as normal phoenix app
 
 ## Next Steps 
+
+- [x] Bring over fc_finch library
+- [x] Test/Src navigation 
+- [ ] Start fc_finch application 
+- [ ] View fc_finch app with :observer 
+- [ ] View fc_finch app with dashboard 
+- [ ] Test fc_finch 
+
+- [ ] Bring over api 
+- [ ] Export feeds 
+- [ ] Import feeds 
+
+- [ ] Bring over RSS reader and Job runner 
