@@ -78,6 +78,7 @@ defmodule FeedxWeb.Router do
 
     live_session :current_user,
       on_mount: [{FeedxWeb.UserAuth, :mount_current_user}] do
+      live "/news", NewsLive, :edit
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
     end
