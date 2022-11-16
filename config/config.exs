@@ -12,6 +12,7 @@ config :feedx,
 
 # Configures the endpoint
 config :feedx, FeedxWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
   render_errors: [
     formats: [html: FeedxWeb.ErrorHTML, json: FeedxWeb.ErrorJSON],
