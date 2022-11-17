@@ -53,6 +53,7 @@ defmodule Feedx.MixProject do
       # Util
       {:bcrypt_elixir, "~> 3.0"},
       {:pbkdf2_elixir, "~> 2.0"},
+      {:modex, path: "~/src/modex"},
       # Repo
       {:ecto_sql, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
