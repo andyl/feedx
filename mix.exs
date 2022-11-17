@@ -13,14 +13,19 @@ defmodule Feedx.MixProject do
     ]
   end
 
-  # Configuration for the OTP application.
-  #
-  # Type `mix help compile.app` for more information.
   def application do
     [
       mod: {Feedx.Application, []},
-      extra_applications: [:logger, :runtime_tools, :os_mon]
+      extra_applications: extra_apps()
     ]
+  end
+
+  # Specifies extra_applications per environment.
+  defp extra_apps do
+    case Mix.env() do
+      :test -> [:logger, :runtime_tools]
+      _ -> [:logger, :runtime_tools, :os_mon]
+    end
   end
 
   # Specifies which paths to compile per environment.

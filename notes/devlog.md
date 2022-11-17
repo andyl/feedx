@@ -1,5 +1,44 @@
 # Feedex Devlog
 
+## Roadmap 
+
+Feedx Features
+- [x] Phoenix 1.7 rewrite 
+- [ ] Tailwind 
+- [ ] New component tooling with slots 
+- [ ] User accounts / auth / email confirmation 
+- [ ] Simultaneous login count 
+- [ ] Metrics: prometheus, loki, tempo 
+- [ ] Full-text search 
+- [ ] Docker releases 
+- [ ] Mobile interface 
+
+Other TODOs
+- [ ] Setup DNS, ssl, reverse-proxy on chap
+- [ ] Test with travel router and phone 
+
+Cleanup 
+- [ ] Get rid of Timex
+- [ ] Get rid of Distillery
+
+Fixes 
+- [ ] JSON import/export stopwords
+
+Features
+- [ ] UI: Generate admin pages: users / feeds / posts 
+- [ ] UI: Admin-links to Dashboard and Admin pages on settings page 
+- [ ] UI: Admin-only access to admin pages 
+- [ ] Infra: Restful API: RSS/JSON (Feeds and Folders) 
+- [ ] Infra: Restful API: SyncNow (Feeds and Folders) 
+- [ ] Infra: Restful API: Mark as Read (Feeds and Folders) 
+- [ ] Infra: Webhook for each Feed and Channel 
+- [ ] Infra: Metrics, Tracing (Jaeger), Logs (Loki) 
+- [ ] Infra: Org & User, Permissions & Tokens, Login 
+- [ ] Telemetry: Get grafana displays working 
+- [ ] Telemetry: Get PromEx working 
+- [ ] Telemetry: Number of logged-in users 
+- [ ] Telemetry: Number of active sessions 
+
 ## 2019 Jul 27 Sat
 
 - [x] Add feedex_web
@@ -554,48 +593,9 @@ Goal: reduce the number of database queries in the life-cycle
 
 ## 2022 Nov 16 Wed
 
-Feedx Features
-- [x] Phoenix 1.7 rewrite 
-- [ ] Tailwind 
-- [ ] New component tooling with slots 
-- [ ] User accounts / auth / email confirmation 
-- [ ] Simultaneous login count 
-- [ ] Metrics: prometheus, loki, tempo 
-- [ ] Full-text search 
-- [ ] Docker releases 
-- [ ] Mobile interface 
-
-Other TODOs
-- [ ] Setup DNS, ssl, reverse-proxy on chap
-- [ ] Test with travel router and phone 
-
-Cleanup 
-- [ ] Get rid of Timex
-- [ ] Get rid of Distillery
-
-Fixes 
-- [ ] JSON import/export stopwords
-
-Features
-- [ ] UI: Generate admin pages: users / feeds / posts 
-- [ ] UI: Admin-links to Dashboard and Admin pages on settings page 
-- [ ] UI: Admin-only access to admin pages 
-- [ ] Infra: Restful API: RSS/JSON (Feeds and Folders) 
-- [ ] Infra: Restful API: SyncNow (Feeds and Folders) 
-- [ ] Infra: Restful API: Mark as Read (Feeds and Folders) 
-- [ ] Infra: Webhook for each Feed and Channel 
-- [ ] Infra: Metrics, Tracing (Jaeger), Logs (Loki) 
-- [ ] Infra: Org & User, Permissions & Tokens, Login 
-- [ ] Telemetry: Get grafana displays working 
-- [ ] Telemetry: Get PromEx working 
-- [ ] Telemetry: Number of logged-in users 
-- [ ] Telemetry: Number of active sessions 
-
 Notes
 - Umbrella doesn't work with phx-1.7-rel0 
 - Rewriting as normal phoenix app
-
-## Next Steps 
 
 - [x] Bring over fc_finch library
 - [x] Test/Src navigation 
@@ -604,9 +604,16 @@ Notes
 - [-] View fc_finch app with dashboard 
 - [x] Test fc_finch 
 - [x] Use FcFinch.get in iex 
+- [x] Bring over api 
+- [x] Export feeds 
 
-- [ ] Bring over api 
-- [ ] Export feeds 
+## 2022 Nov 17 Thu
+
+- [x] Try `getch` fix 
+- [x] Restart test runner 
+
+## Next Steps 
+
 - [ ] Import feeds 
 
 - [ ] Bring over fc_rss 

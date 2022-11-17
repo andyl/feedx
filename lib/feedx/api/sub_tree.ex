@@ -10,7 +10,7 @@ defmodule Feedx.Api.SubTree do
   alias Feedx.Ctx.News.Feed
   alias Feedx.Repo
   alias Feedx.Api
-  alias Modex.AltMap
+  # alias Modex.AltMap
   import Ecto.Query
 
   @doc """
@@ -25,15 +25,15 @@ defmodule Feedx.Api.SubTree do
     |> convert()
   end
 
-  @doc """
-  List SubTrees - stripped down data.
-
-  Used by live/components/tree_component.
-  """
-  def cleantree(user_id) do
-    rawtree(user_id)
-    |> AltMap.retake([:id, :name, :user_id, :registers])
-  end
+  # @doc """
+  # List SubTrees - stripped down data.
+  #
+  # Used by live/components/tree_component.
+  # """
+  # def cleantree(user_id) do
+  #   rawtree(user_id)
+  #   |> AltMap.retake([:id, :name, :user_id, :registers])
+  # end
 
   @doc """
   List SubTrees - full data.

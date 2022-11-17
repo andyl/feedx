@@ -12,12 +12,12 @@ defmodule Feedx.Api.SubTreeTest do
     end
   end
 
-  describe "#cleantree" do
-    test "returns a value" do
-      data = gentree()
-      assert SubTree.cleantree(data.user.id)
-    end
-  end
+  # describe "#cleantree" do
+  #   test "returns a value" do
+  #     data = gentree()
+  #     assert SubTree.cleantree(data.user.id)
+  #   end
+  # end
 
   describe "#list" do
     test "returns a value" do

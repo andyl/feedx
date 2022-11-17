@@ -1,4 +1,4 @@
-# Feedex
+# Feedx
 
 Simple RSS Aggregator
 
