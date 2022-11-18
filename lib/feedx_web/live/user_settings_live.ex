@@ -6,7 +6,9 @@ defmodule FeedxWeb.UserSettingsLive do
   def render(assigns) do
     ~H"""
     <.header>Links</.header>
-    <.link href={~p"/users/settings/subs.json"}>Subscription JSON</.link>
+    <.alink href={~p"/users/settings/subs"}>Subscriptions</.alink> |
+    <.alink href="/dev/dashboard">Dashboard</.alink> |
+    <.alink href="/dev/mailbox">Mailbox</.alink>
     <div class="mb-5"></div>
 
     <.header>Change Email</.header>

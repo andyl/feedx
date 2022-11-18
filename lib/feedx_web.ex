@@ -84,7 +84,7 @@ defmodule FeedxWeb do
     quote do
       # HTML escaping functionality
       import Phoenix.HTML
-      # Core UI components and translation
+      import FeedxWeb.AppComponents
       import FeedxWeb.CoreComponents
       import FeedxWeb.Gettext
 

@@ -70,6 +70,7 @@ defmodule FeedxWeb.Router do
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end
 
+    get "/users/settings/subs", UserSettingsController, :subs
     get "/users/settings/subs.json", UserSettingsController, :subs_json
   end
 

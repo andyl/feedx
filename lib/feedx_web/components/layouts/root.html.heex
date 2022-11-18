@@ -18,20 +18,20 @@
           <%= @current_user.email %>
         </li>
         <li>
-          <.link href={~p"/news"}>News</.link>
+          <.alink href={~p"/news"}>News</.alink>
         </li>
         <li>
-          <.link href={~p"/users/settings"}>Settings</.link>
+          <.alink href={~p"/users/settings"}>Settings</.alink>
         </li>
         <li>
-          <.link href={~p"/users/log_out"} method="delete">Log out</.link>
+          <.link class="underline decoration-blue-400 decoration-2" href={~p"/users/log_out"} method="delete">Log out</.link>
         </li>
       <% else %>
         <li>
-          <.link href={~p"/users/register"}>Register</.link>
+          <.alink href={~p"/users/register"}>Register</.alink>
         </li>
         <li>
-          <.link href={~p"/users/log_in"}>Log in</.link>
+          <.alink href={~p"/users/log_in"}>Log in</.alink>
         </li>
       <% end %>
     </ul>
