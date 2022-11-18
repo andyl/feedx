@@ -4,15 +4,15 @@ defmodule FeedxWeb.BodyComponent do
 
   Call using:
 
-      <%= live_component(@socket, FeedexUi.BodyComponent, uistate: @uistate) %>
+      <%= live_component(FeedexUi.BodyComponent, uistate: @uistate) %>
 
   """
 
   use Phoenix.LiveComponent
 
-  # alias FeedexUi.{BodyAddFeedComponent, BodyAddFolderComponent}
-  # alias FeedexUi.{BodyEditFeedComponent, BodyEditFolderComponent}
-  # alias FeedexUi.{BodyViewComponent}
+  alias FeedxWeb.{BodyAddFeedComponent, BodyAddFolderComponent}
+  alias FeedxWeb.{BodyEditFeedComponent, BodyEditFolderComponent}
+  alias FeedxWeb.{BodyViewComponent}
 
   def render(assigns) do
     ~H"""
@@ -24,17 +24,17 @@ defmodule FeedxWeb.BodyComponent do
 
   # ----- view helpers -----
 
-  def render_body(socket, _counts, _uistate) do
+  def render_body(socket, counts, uistate) do
     # without this if-statement, there is a compiler warning: `socket` variable is not used. Hmm...
     if socket do
-      # case uistate.mode do
-      #   "view"        -> live_component(socket, BodyViewComponent,       opts(counts, uistate, "view"))
-      #   "add_feed"    -> live_component(socket, BodyAddFeedComponent,    opts(counts, uistate, "afee"))
-      #   "add_folder"  -> live_component(socket, BodyAddFolderComponent,  opts(counts, uistate, "afol"))
-      #   "edit_feed"   -> live_component(socket, BodyEditFeedComponent,   opts(counts, uistate, "efee"))
-      #   "edit_folder" -> live_component(socket, BodyEditFolderComponent, opts(counts, uistate, "efol"))
-      #   _             -> live_component(socket, BodyViewComponent,       opts(counts, uistate, "view"))
-      # end
+      case uistate.mode do
+        "view"        -> live_component(BodyViewComponent,       opts(counts, uistate, "view"))
+        "add_feed"    -> live_component(BodyAddFeedComponent,    opts(counts, uistate, "afee"))
+        "add_folder"  -> live_component(BodyAddFolderComponent,  opts(counts, uistate, "afol"))
+        "edit_feed"   -> live_component(BodyEditFeedComponent,   opts(counts, uistate, "efee"))
+        "edit_folder" -> live_component(BodyEditFolderComponent, opts(counts, uistate, "efol"))
+        _             -> live_component(BodyViewComponent,       opts(counts, uistate, "view"))
+      end
     end
   end
 

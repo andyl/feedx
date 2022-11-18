@@ -1,4 +1,4 @@
-defmodule FeedexUi.BodyEditFolderComponent do
+defmodule FeedxWeb.BodyEditFolderComponent do
   @moduledoc """
   Renders the body view component.
 
@@ -10,9 +10,9 @@ defmodule FeedexUi.BodyEditFolderComponent do
 
   use Phoenix.LiveComponent
   # use Phoenix.LiveEditable
-  alias FeedexCore.Ctx.Account.Folder
-  alias FeedexCore.Ctx.Account.Register
-  alias FeedexCore.Repo
+  alias Feedx.Ctx.Account.Folder
+  alias Feedx.Ctx.Account.Register
+  alias Feedx.Repo
 
   import Ecto.Query
 

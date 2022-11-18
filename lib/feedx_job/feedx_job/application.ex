@@ -5,7 +5,6 @@ defmodule FeedxJob.Application do
 
   def child_spec(_) do
     %{
-      # id: __MODULE__,
       id: :feedx_job,
       start: {__MODULE__, :start, []},
       type: :worker,

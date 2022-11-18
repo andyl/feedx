@@ -115,9 +115,9 @@ defmodule FeedxWeb.HdrComponent do
 
   def sync_all(state) do
     case {state.fld_id, state.reg_id} do
-      {nil   , nil} -> FeedexJob.sync_for(state.usr_id)
-      {fld_id, nil} -> FeedexJob.sync_for(state.usr_id, fld_id: fld_id)
-      {nil, reg_id} -> FeedexJob.sync_for(state.usr_id, reg_id: reg_id)
+      {nil   , nil} -> FeedxJob.sync_for(state.usr_id)
+      {fld_id, nil} -> FeedxJob.sync_for(state.usr_id, fld_id: fld_id)
+      {nil, reg_id} -> FeedxJob.sync_for(state.usr_id, reg_id: reg_id)
     end
   end
 

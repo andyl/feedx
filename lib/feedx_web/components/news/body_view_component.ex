@@ -1,4 +1,4 @@
-defmodule FeedexUi.BodyViewComponent do
+defmodule FeedxWeb.BodyViewComponent do
   @moduledoc """
   Renders the body view component.
 
@@ -8,7 +8,7 @@ defmodule FeedexUi.BodyViewComponent do
 
   """
 
-  alias FeedexCore.Ctx.News
+  alias Feedx.Ctx.News
   alias Phoenix.HTML
 
   use Phoenix.LiveComponent
@@ -30,7 +30,7 @@ defmodule FeedexUi.BodyViewComponent do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div>
       <table class="table text-sm table-auto ">
         <%= for post <- @posts do %>
@@ -40,13 +40,13 @@ defmodule FeedexUi.BodyViewComponent do
               <td><b><%= id_link(post.id, @myself) %></b></td>
               <td>
                 <b>
-                <a href='<%= post.link %>' class='bluelink' target='_blank'>
+                <a href='{ post.link }' class='bluelink' target='_blank'>
                 <%= time_ago(post.updated_at) %><%= post.title %>
                 </a>
                 </b>
                 </td>
             </tr>
-            <tr style='background-color: lightgrey;'><td colspan=3>
+            <tr style='background-color: lightgrey;'><td>
               <small>
               <%= byline(post) %> <%= HTML.raw post.body %>
               </small>
@@ -140,7 +140,7 @@ defmodule FeedexUi.BodyViewComponent do
     newstate = Map.merge(uistate, %{pst_id: new_pid})
 
     if new_pid do
-      FeedexCore.Ctx.Account.mark_all_for(user_id, pst_id: post_id)
+      Feedx.Ctx.Account.mark_all_for(user_id, pst_id: post_id)
     end
 
     send(self(), {"set_uistate", %{uistate: newstate, recount: true}})

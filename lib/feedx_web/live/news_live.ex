@@ -19,19 +19,18 @@ defmodule FeedxWeb.NewsLive do
           <%= live_render(@socket, FeedxWeb.ClockLive, id: "clock") %>
         </div>
         <div>
-          <%= live_component(@socket, FeedxWeb.TreeComponent, id: "tre", uistate: @uistate, treemap: @treemap, counts: @counts) %>
+          <%= live_component(FeedxWeb.TreeComponent, id: "tre", uistate: @uistate, treemap: @treemap, counts: @counts) %>
         </div>
         <div>
-          <%= live_component(@socket, FeedxWeb.BtnComponent, id: "btn", uistate: @uistate) %>
+          <%= live_component(FeedxWeb.BtnComponent, id: "btn", uistate: @uistate) %>
         </div>
       </div>
       <div>
         <div class="bg-slate-400">
-          <%= live_component(@socket, FeedxWeb.HdrComponent, id: "hdr", uistate: @uistate, treemap: @treemap, counts: @counts) %>
+          <%= live_component(FeedxWeb.HdrComponent, id: "hdr", uistate: @uistate, treemap: @treemap, counts: @counts) %>
         </div>
         <div>
-          BODY
-          <%# live_component(@socket, FeedexUi.BodyComponent, id: "bdy", uistate: @uistate, counts: @counts) %>
+          <%= live_component(FeedxWeb.BodyComponent, id: "bdy", uistate: @uistate, counts: @counts) %>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-defmodule FeedexUi.BodyEditFeedComponent do
+defmodule FeedxWeb.BodyEditFeedComponent do
   @moduledoc """
   Renders the body view component.
 
