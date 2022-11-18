@@ -617,7 +617,15 @@ Notes
 - [x] Bring over fc_rss (dependency, code, test) 
 - [x] Bring over feedex_job (dependency, code, test, application) 
 
+## 2022 Nov 18 Fri
+
+- [x] Build out the UI 
+- [x] Fix LSP (Elixir / Dialyzer)
+
 ## Next Steps 
 
-- [ ] Build out the UI 
-
+- [ ] Get Tree working clean 
+- [ ] Get Body working clean 
+- [ ] Get favicon working 
+- [ ] Clean up header 
+- [ ] Remove `feedex_ui` directory 
