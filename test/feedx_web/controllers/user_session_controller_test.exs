@@ -21,7 +21,7 @@ defmodule FeedxWeb.UserSessionControllerTest do
       conn = get(conn, ~p"/")
       response = html_response(conn, 200)
       assert response =~ user.email
-      assert response =~ "Settings</a>"
+      assert response =~ "Settings"
       assert response =~ "Log out</a>"
     end
 

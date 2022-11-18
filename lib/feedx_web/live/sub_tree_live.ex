@@ -1,17 +1,15 @@
-defmodule FeedexUi.SubTreeLive do
+defmodule FeedxWeb.SubTreeLive do
   @moduledoc """
   Renders the SubTreeLive page.
   """
 
-  use FeedexUi, :live_view
-
-  # import Phoenix.HTML.Form
+  use FeedxWeb, :live_view
 
   # ----- lifecycle callbacks -----
 
   @impl true
   def mount(_params, session, socket) do
-    user = FeedexUi.SessionUtil.user_from_session(session)
+    user = FeedxWeb.SessionUtil.user_from_session(session)
 
     opts = %{
       result: "OK",
@@ -53,7 +51,7 @@ defmodule FeedexUi.SubTreeLive do
     json = session["json"]
 
     result = try do
-      FeedexCore.Api.SubTree.import_tree_json(user.id, json)
+      Feedx.Api.SubTree.import_tree_json(user.id, json)
       "SUCCESS"
     rescue
       _ -> "ERROR BAD DATA"
