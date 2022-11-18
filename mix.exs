@@ -79,6 +79,8 @@ defmodule Feedx.MixProject do
       # FeedxJob
       {:quantum, "~> 3.3"},
       {:timex, "~> 3.0"},
+      # Persistence
+      {:pets, path: "~/src/pets"},
     ]
   end
 

@@ -33,8 +33,8 @@ Key API Calls:
 | App          | Tool             | Purpose                  |
 |--------------|------------------|--------------------------|
 | FeedexClient | ElixirFeedParser | RSS Parsing              |
-| FeedxJob    | Oban             | Background Job Runner    |
-| FeedxJob    | Quantum          | Cron-like Job Scheduling |
+| FeedexJob    | Oban             | Background Job Runner    |
+| FeedexJob    | Quantum          | Cron-like Job Scheduling |
 | FeedexWeb    | LiveView         | Dynamic UI               |
 | FeedexWeb    | Pets             | ETS Caching              |
 
