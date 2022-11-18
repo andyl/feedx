@@ -1,21 +1,21 @@
-defmodule FeedexUi.BodyAddFeedComponent do
+defmodule FeedxWeb.BodyAddFeedComponent do
   @moduledoc """
   Renders the body view component.
 
   Call using:
 
-      <%= live_component(@socket, FeedexUi.BodyComponent, uistate: @uistate) %>
+      <%= live_component(@socket, FeedxWeb.BodyComponent, uistate: @uistate) %>
 
   """
 
-  alias FeedexCore.Ctx.Account
-  alias FeedexCore.Ctx.Account.Folder 
-  # alias FeedexCore.Ctx.Account.Register
-  # alias FeedexCore.Ctx.News.Feed
-  alias FeedexCore.Repo
+  alias Feedx.Ctx.Account
+  alias Feedx.Ctx.Account.Folder
+  # alias Feedx.Ctx.Account.Register
+  # alias Feedx.Ctx.News.Feed
+  alias Feedx.Repo
 
   import Phoenix.HTML.Form
-  import FeedexUi.ErrorHelpers
+  # import FeedxWeb.ErrorHelpers
   import Ecto.Query
 
   use Phoenix.LiveComponent
@@ -38,15 +38,15 @@ defmodule FeedexUi.BodyAddFeedComponent do
       <H1>Create a new Feed</H1>
       <div>
       <%= f = form_for @changeset, "#", [phx_target: "#{@myself}", phx_change: :validate, phx_submit: :save] %>
-      
+
         <div class="form-group">
           <%= text_input f, :name, placeholder: "Enter a feed name...", class: "form-control" %>
-          <%= error_tag f, :name %>
+          <%# error_tag f, :name %>
         </div>
 
         <div class="form-group">
           <%= text_input f, :url, placeholder: "Enter a url...", class: "form-control" %>
-          <%= error_tag f, :url %>
+          <%# error_tag f, :url %>
         </div>
 
         <div class="form-group">
@@ -65,13 +65,13 @@ defmodule FeedexUi.BodyAddFeedComponent do
   end
 
   # ----- view helpers -----
-    
+
   def folders_for(uistate) do
     user_id = uistate.usr_id
     from(
       f in Folder,
       where: f.user_id == ^user_id
-    ) 
+    )
     |> Repo.all()
     |> Enum.map(fn(el) -> {el.name, el.id} end)
   end
@@ -84,7 +84,7 @@ defmodule FeedexUi.BodyAddFeedComponent do
       name: payload["reg_feed"]["name"],
       url:  payload["reg_feed"]["url"]
     }
-    changeset = 
+    changeset =
       %Account.RegFeed{}
       |> Account.RegFeed.changeset(params)
     opts = %{
@@ -93,7 +93,7 @@ defmodule FeedexUi.BodyAddFeedComponent do
     {:noreply, assign(socket, opts)}
   end
 
-  # if the feed exists, use that.  
+  # if the feed exists, use that.
   # otherwise create a feed.
   # then create a register
   # finally, redirect to the reg/feed
@@ -102,7 +102,7 @@ defmodule FeedexUi.BodyAddFeedComponent do
     reg_name  = payload["reg_feed"]["name"]
     feed_url  = payload["reg_feed"]["url"]
     folder_id = payload["reg_feed"]["folder_id"] |> String.to_integer()
-    reg = FeedexCore.Api.SubTree.import_register(folder_id, reg_name, feed_url)
+    reg = Feedx.Api.SubTree.import_register(folder_id, reg_name, feed_url)
     send(self(), {"new_feed", %{reg_id: reg.id}})
 
     {:noreply, socket}

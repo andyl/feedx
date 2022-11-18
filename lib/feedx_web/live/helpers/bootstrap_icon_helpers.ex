@@ -1,4 +1,4 @@
-defmodule FeedexUi.BootstrapIconHelpers do
+defmodule FeedxWeb.BootstrapIconHelpers do
 
   @moduledoc """
   Helpers for SVG Icons.

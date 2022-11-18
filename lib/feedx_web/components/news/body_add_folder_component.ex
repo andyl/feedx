@@ -8,11 +8,11 @@ defmodule FeedexUi.BodyAddFolderComponent do
 
   """
 
-  alias FeedexCore.Ctx.Account
-  alias FeedexCore.Api
+  alias Feedx.Ctx.Account
+  alias Feedx.Api
 
   import Phoenix.HTML.Form
-  import FeedexUi.ErrorHelpers
+  # import FeedxWeb.ErrorHelpers
 
   use Phoenix.LiveComponent
 
@@ -40,11 +40,12 @@ defmodule FeedexUi.BodyAddFolderComponent do
 
       <div class="form-group">
         <%= text_input f, :name, placeholder: "Enter a folder name...", class: "form-control" %>
-        <%= error_tag f, :name %>
+        <%# error_tag f, :name %>
       </div>
 
       <%= if @changeset.valid? do %>
-        <%= submit "Create a Folder", class: "btn btn-primary" %>
+        <
+        %= submit "Create a Folder", class: "btn btn-primary" %>
       <% else %>
         <button style='pointer-events: none;' class="btn btn-primary disabled">Create a Folder</button>
       <% end %>

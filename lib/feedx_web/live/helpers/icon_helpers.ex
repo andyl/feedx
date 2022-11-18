@@ -1,4 +1,4 @@
-defmodule FeedexUi.IconHelpers do
+defmodule FeedxWeb.IconHelpers do
 
   @moduledoc """
   Helpers for SVG Icons.

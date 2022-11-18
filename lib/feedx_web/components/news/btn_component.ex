@@ -1,4 +1,4 @@
-defmodule FeedexUi.BtnComponent do
+defmodule FeedxWeb.BtnComponent do
   @moduledoc """
   Renders the btn component.
 
@@ -10,18 +10,18 @@ defmodule FeedexUi.BtnComponent do
 
   use Phoenix.LiveComponent
   import Phoenix.HTML
-  import FeedexUi.BootstrapIconHelpers
+  import FeedxWeb.BootstrapIconHelpers
 
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div class="py-1 desktop-only">
-      <hr/> 
+      <hr/>
       <%= folder_btn(@uistate, @myself) %>
       <%= feed_btn(@uistate, @myself) %>
     </div>
     """
   end
-  
+
   # ----- view helpers -----
 
   def folder_btn(uistate, myself) do
@@ -43,7 +43,7 @@ defmodule FeedexUi.BtnComponent do
   end
 
   # ----- event handlers -----
-  
+
   def handle_event("view_all", _payload, socket) do
     opts = %{
       mode: "view",

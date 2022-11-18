@@ -8,17 +8,17 @@ defmodule FeedexUi.BodyEditFeedComponent do
 
   """
 
-  alias FeedexCore.Ctx.News.Post
-  alias FeedexCore.Ctx.News.Feed
-  alias FeedexCore.Ctx.Account.Register
-  alias FeedexCore.Ctx.Account.Folder
-  alias FeedexCore.Repo
+  alias Feedx.Ctx.News.Post
+  alias Feedx.Ctx.News.Feed
+  alias Feedx.Ctx.Account.Register
+  alias Feedx.Ctx.Account.Folder
+  alias Feedx.Repo
 
   import Ecto.Query
   import Phoenix.HTML
 
   use Phoenix.LiveComponent
-  use Phoenix.LiveEditable
+  # use Phoenix.LiveEditable
 
   require Logger
 
@@ -40,17 +40,17 @@ defmodule FeedexUi.BodyEditFeedComponent do
           from(pst in Post, select: count(pst.id), where: pst.feed_id == ^register.feed_id)
           |> Repo.one()
 
-        folders = from(fld in Folder, 
-          select: {fld.id, fld.name}, 
+        folders = from(fld in Folder,
+          select: {fld.id, fld.name},
           where: fld.user_id == ^usr_id,
           order_by: fld.name
-        ) |> Repo.all() 
+        ) |> Repo.all()
 
         %{
           register: register,
           feed_count: feed_count,
           feed: Repo.get(Feed, register.feed_id),
-          folder: Repo.get(Folder, register.folder_id), 
+          folder: Repo.get(Folder, register.folder_id),
           folders: folders,
           post_count: post_count,
           uistate: session.uistate
@@ -77,8 +77,8 @@ defmodule FeedexUi.BodyEditFeedComponent do
     <h1>EDIT FEED</h1>
     <%= if @register do %>
       <table class="table">
-      <tr><td>Reg Name:</td><td><%= live_edit(assigns, @register.name, type: "text", id: "name", target: @myself, on_submit: "rename") %></td></tr>
-      <tr><td>Reg Folder:</td><td><%= live_edit(assigns, @folder.name, type: "select", options: @folders, target: @myself, id: "folder", on_submit: "refolder") %></td></tr>
+      <tr><td>Reg Name:</td><td><%# live_edit(assigns, @register.name, type: "text", id: "name", target: @myself, on_submit: "rename") %></td></tr>
+      <tr><td>Reg Folder:</td><td><%# live_edit(assigns, @folder.name, type: "select", options: @folders, target: @myself, id: "folder", on_submit: "refolder") %></td></tr>
       <tr><td>FeedUrl:</td><td><%= feed_link(@feed) %></td></tr>
       <tr><td>Usr/Registry ID:</td><td><%= @register.id %></td></tr>
       <tr><td>Attached Registries:</td><td><%= @feed_count %></td></tr>

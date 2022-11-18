@@ -13,7 +13,7 @@ defmodule FeedexUi.BodyViewComponent do
 
   use Phoenix.LiveComponent
 
-  import FeedexUi.BootstrapIconHelpers
+  import FeedxWeb.BootstrapIconHelpers
 
   # ----- lifecycle callbacks -----
 
@@ -107,8 +107,8 @@ defmodule FeedexUi.BodyViewComponent do
     """
     <a href='#' class='bluelink' phx-click='fld-clk' phx-value-fldid=#{post.fld_id}>#{
       post.fld_name
-    }</a> 
-    > 
+    }</a>
+    >
     <a href='#' phx-click='reg-clk' phx-value-regid=#{post.reg_id}>#{post.reg_name}</a> (#{
       host_for(post)
     })

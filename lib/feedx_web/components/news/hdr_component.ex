@@ -11,10 +11,10 @@ defmodule FeedexUi.HdrComponent do
   use Phoenix.LiveComponent
 
   alias Phoenix.HTML
-  alias FeedexCore.Ctx.Account
-  alias FeedexCore.Util.Treemap
-  import FeedexUi.CountHelpers
-  import FeedexUi.BootstrapIconHelpers
+  alias Feedx.Ctx.Account
+  alias Feedx.Util.Treemap
+  import FeedxWeb.CountHelpers
+  # import FeedexUi.BootstrapIconHelpers
 
   # ----- lifecycle callbacks -----
 
@@ -37,7 +37,7 @@ defmodule FeedexUi.HdrComponent do
   end
 
   # ----- view helpers -----
-  
+
   defp title(state, counts, treemap, myself) do
     case {state.fld_id, state.reg_id} do
       {nil   , nil} -> all_title(counts, myself)
@@ -50,7 +50,7 @@ defmodule FeedexUi.HdrComponent do
     count = counts.all
     if count > 0 do
       "ALL " <> checklink(count, myself)
-    else 
+    else
       "ALL"
     end
   end
@@ -77,18 +77,18 @@ defmodule FeedexUi.HdrComponent do
     """
     #{unread(count)}
     <a href='#' phx-target="#{myself}" phx-click="mark-read">
-      #{check_circle_svg("h-8 inline")}
+      {check_circle_svg("h-8 inline")}
     </a>
     """
   end
 
   defp btns(state, myself) do
     show_pencil = state.reg_id != nil || state.fld_id != nil
-    pencil = 
+    pencil =
       if show_pencil do
         """
         <a href='#' phx-target='#{myself}' phx-click='click-edit'>
-          #{pencil_alt_svg("h-4 inline")}
+          {pencil_alt_svg("h-4 inline")}
         </a>
         """
       else
@@ -97,7 +97,7 @@ defmodule FeedexUi.HdrComponent do
 
     """
     <a href='#' phx-target='#{myself}' phx-click='feed-sync'>
-      #{ refresh_svg("h-4 inline") }
+      { refresh_svg("h-4 inline") }
     </a>
     #{pencil}
     """
@@ -159,10 +159,10 @@ defmodule FeedexUi.HdrComponent do
   @impl true
   def handle_event("mark-read", _click, socket) do
     mark_all_read(socket.assigns.uistate)
-    
+
     send(self(), "mark_all_read")
 
     {:noreply, socket}
   end
-  
+
 end

@@ -1,4 +1,4 @@
-defmodule FeedexUi.TreeComponent do
+defmodule FeedxWeb.TreeComponent do
   @moduledoc """
   Renders the tree
 
@@ -13,11 +13,11 @@ defmodule FeedexUi.TreeComponent do
 
   alias Phoenix.HTML
   import Phoenix.HTML
-  import FeedexUi.CountHelpers
+  import FeedxWeb.CountHelpers
 
   def render(assigns) do
     open_folder = get_open_fld(assigns.treemap, assigns.uistate)
-    ~L"""
+    ~H"""
     <div class='mt-2 desktop-only'>
       <%= all_btn(@uistate, @myself) %> <%= unread(@counts.all, :raw) %><br/>
       <small>
@@ -34,17 +34,6 @@ defmodule FeedexUi.TreeComponent do
       <% end %>
       </small>
       <%# HTML.raw state_table(@uistate) %>
-    </div>
-    <div class='mobile-only'>
-      <%= all_btn(@uistate, @myself) %> <%= all_unread(@uistate, @counts.all) %>
-      <small>
-      <%= for folder <- @treemap do %>
-        &emsp;
-        &emsp;
-        <%= fold_link(@uistate, @myself, folder) %>
-        <%= fold_unread(@uistate, folder.id, @counts.fld[folder.id]) %>
-      <% end %>
-      </small>
     </div>
     """
   end
@@ -66,7 +55,7 @@ defmodule FeedexUi.TreeComponent do
       <span style="margin-right: 10px">
       <a href='#'>
       <i class='bi-check' phx-click='mark-read'></i>
-      </a>  
+      </a>
       </span>
     """
   end
@@ -130,7 +119,7 @@ defmodule FeedexUi.TreeComponent do
       "<b>#{register.name}</b>"
     else
       """
-      <a href='#' phx-click='clk_feed' phx-target='#{myself}' phx-value-regid='#{register.id}'>#{register.name}</a> 
+      <a href='#' phx-click='clk_feed' phx-target='#{myself}' phx-value-regid='#{register.id}'>#{register.name}</a>
       """
     end
     |> HTML.raw()
@@ -194,7 +183,7 @@ defmodule FeedexUi.TreeComponent do
   def handle_event("clk_feed", %{"regid" => regid}, socket) do
     new_state = %{
       mode: "view",
-      usr_id: socket.assigns.uistate.usr_id, 
+      usr_id: socket.assigns.uistate.usr_id,
       reg_id: Integer.parse(regid) |> elem(0),
       fld_id: nil,
       pst_id: nil

@@ -1,4 +1,4 @@
-defmodule FeedexUi.NavUtil do
+defmodule FeedxWeb.NavUtil do
   @moduledoc """
   Conveniences for navigation menus.
   """
@@ -14,13 +14,13 @@ defmodule FeedexUi.NavUtil do
     <a href="<%= link_path %>" class="<%= klas %>"><%= label %></a>
     """
   end
-  
+
   def active_klas do
     "nav-link disabled"
   end
 
   def normal_klas do
-    "nav-link active" 
+    "nav-link active"
   end
 
 end

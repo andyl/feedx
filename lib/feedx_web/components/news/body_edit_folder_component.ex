@@ -9,7 +9,7 @@ defmodule FeedexUi.BodyEditFolderComponent do
   """
 
   use Phoenix.LiveComponent
-  use Phoenix.LiveEditable
+  # use Phoenix.LiveEditable
   alias FeedexCore.Ctx.Account.Folder
   alias FeedexCore.Ctx.Account.Register
   alias FeedexCore.Repo
@@ -35,15 +35,15 @@ defmodule FeedexUi.BodyEditFolderComponent do
     {:ok, assign(socket, opts)}
   end
 
-  
+
   @impl true
   def render(assigns) do
     ~L"""
     <div>
       <h1>EDIT FOLDER</h1>
       <table class="table">
-        <tr><td>Folder Name:</td><td><%= live_edit(assigns, @folder.name, type: "text", id: "name", target: @myself, on_submit: "set_name") %></td></tr>
-        <tr><td>Stopwords:</td><td><%= live_edit(assigns, @folder.stopwords || "NA", type: "text", id: "stopwords", target: @myself, on_submit: "set_stopwords") %></td></tr>
+        <tr><td>Folder Name:</td><td><%# live_edit(assigns, @folder.name, type: "text", id: "name", target: @myself, on_submit: "set_name") %></td></tr>
+        <tr><td>Stopwords:</td><td><%# live_edit(assigns, @folder.stopwords || "NA", type: "text", id: "stopwords", target: @myself, on_submit: "set_stopwords") %></td></tr>
         <tr><td>Folder ID:</td><td><%= @folder.id %></td></tr>
         <tr><td>Num Feeds:</td><td><%= @feed_count %></td></tr>
       </table>
@@ -57,6 +57,7 @@ defmodule FeedexUi.BodyEditFolderComponent do
 
   # ----- event handlers -----
 
+  @impl true
   def handle_event("set_name", %{"editable_text" => newname}, socket) do
     Folder
     |> Repo.get(socket.assigns.uistate.fld_id)

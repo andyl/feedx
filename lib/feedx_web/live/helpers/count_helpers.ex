@@ -1,4 +1,4 @@
-defmodule FeedexUi.CountHelpers do
+defmodule FeedxWeb.CountHelpers do
 
   @moduledoc """
   HTML helpers for live views.
