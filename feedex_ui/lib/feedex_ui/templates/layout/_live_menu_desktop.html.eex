@@ -1,0 +1,25 @@
+<ul class="mb-2 navbar-nav mb-lg-0">
+  <%= if @current_user do %>
+    <li class="nav-item">
+      <div class="nav-link">
+        <%= @current_user.email %>
+      </div>
+    </li>
+    <li class="nav-item">
+      <%= FeedexUi.NavUtil.link(@conn, "/news", "News") %>
+    </li>
+    <li class="nav-item">
+      <%= FeedexUi.NavUtil.link(@conn, "/users/settings", "Settings") %>
+    </li>
+    <li class="nav-item">
+      <%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete, class: FeedexUi.NavUtil.normal_klas() %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: FeedexUi.NavUtil.normal_klas() %>
+    </li>
+    <li class="nav-item">
+      <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: FeedexUi.NavUtil.normal_klas() %>
+    </li>
+  <% end %>
+</ul> 

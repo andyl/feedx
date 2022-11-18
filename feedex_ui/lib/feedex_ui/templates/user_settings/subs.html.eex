@@ -1,0 +1,20 @@
+<h3 style='margin-top: 20px;'>SUBSCRIPTIONS</h3>
+
+<div>
+  <a class="bluelink" href="/api/users/settings/subs.json">JSON</a> | 
+  <a class="bluelink" href="/users/settings/sub_import">IMPORT</a>  
+</div>
+
+<style>
+span { display: inline-block; width: 180px;}
+</style>
+
+<div class='text-monospace'>
+  <%= for folder <- Map.keys(@subs) do %>
+  <p></p>
+  <%= folder %><br/>
+  <%= for feed <- @subs[folder] do %>
+    <span>-> <%= feed.feed_name %></span><%= feed.feed_url %><br/>
+  <% end %>
+  <% end %>
+</div>
