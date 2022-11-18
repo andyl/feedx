@@ -1,4 +1,4 @@
-defmodule FeedexUi.TextComponent do
+defmodule FeedxWeb.TextComponent do
   @moduledoc """
   Renders a simple output string.
 
@@ -12,7 +12,7 @@ defmodule FeedexUi.TextComponent do
 
   def render(assigns) do
     lcl_text = assigns[:text] || "Default Text"
-    ~L"""
+    ~H"""
     <%= lcl_text %>
     """
   end

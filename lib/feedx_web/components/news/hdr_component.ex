@@ -1,4 +1,4 @@
-defmodule FeedexUi.HdrComponent do
+defmodule FeedxWeb.HdrComponent do
   @moduledoc """
   Renders the hdr component.
 
@@ -14,13 +14,13 @@ defmodule FeedexUi.HdrComponent do
   alias Feedx.Ctx.Account
   alias Feedx.Util.Treemap
   import FeedxWeb.CountHelpers
-  # import FeedexUi.BootstrapIconHelpers
+  import FeedxWeb.BootstrapIconHelpers
 
   # ----- lifecycle callbacks -----
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div class="desktop-only" style="background-color: lightgray; padding: 5px; padding-right: 20px;">
       <%= if @uistate.mode == "view" do %>
         <div class='d-flex'>
@@ -77,7 +77,7 @@ defmodule FeedexUi.HdrComponent do
     """
     #{unread(count)}
     <a href='#' phx-target="#{myself}" phx-click="mark-read">
-      {check_circle_svg("h-8 inline")}
+      #{check_circle_svg("h-8 inline")}
     </a>
     """
   end
@@ -88,7 +88,7 @@ defmodule FeedexUi.HdrComponent do
       if show_pencil do
         """
         <a href='#' phx-target='#{myself}' phx-click='click-edit'>
-          {pencil_alt_svg("h-4 inline")}
+          #{pencil_alt_svg("h-4 inline")}
         </a>
         """
       else
@@ -97,7 +97,7 @@ defmodule FeedexUi.HdrComponent do
 
     """
     <a href='#' phx-target='#{myself}' phx-click='feed-sync'>
-      { refresh_svg("h-4 inline") }
+      #{refresh_svg("h-4 inline")}
     </a>
     #{pencil}
     """

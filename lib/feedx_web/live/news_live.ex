@@ -13,7 +13,7 @@ defmodule FeedxWeb.NewsLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="grid grid-cols-[200px_300px] w-full">
+    <div class="grid grid-cols-[150px_600px] w-full">
       <div class="pl-3 bg-slate-400">
         <div>
           <%= live_render(@socket, FeedxWeb.ClockLive, id: "clock") %>
@@ -25,11 +25,14 @@ defmodule FeedxWeb.NewsLive do
           <%= live_component(@socket, FeedxWeb.BtnComponent, id: "btn", uistate: @uistate) %>
         </div>
       </div>
-      <div class="col-md-10">
-        <div class="bg-slate-400">HDR</div>
-        <div>BODY</div>
-        <%# live_component(@socket, FeedexUi.HdrComponent, id: "hdr", uistate: @uistate, treemap: @treemap, counts: @counts) %>
-        <%# live_component(@socket, FeedexUi.BodyComponent, id: "bdy", uistate: @uistate, counts: @counts) %>
+      <div>
+        <div class="bg-slate-400">
+          <%= live_component(@socket, FeedxWeb.HdrComponent, id: "hdr", uistate: @uistate, treemap: @treemap, counts: @counts) %>
+        </div>
+        <div>
+          BODY
+          <%# live_component(@socket, FeedexUi.BodyComponent, id: "bdy", uistate: @uistate, counts: @counts) %>
+        </div>
       </div>
     </div>
     """

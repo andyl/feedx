@@ -1,4 +1,4 @@
-defmodule FeedexUi.BodyComponent do
+defmodule FeedxWeb.BodyComponent do
   @moduledoc """
   Renders the btn component.
 
@@ -15,7 +15,7 @@ defmodule FeedexUi.BodyComponent do
   # alias FeedexUi.{BodyViewComponent}
 
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div class="px-2 pt-1 bg-white">
       <%= render_body(@socket, @counts, @uistate) %>
     </div>
