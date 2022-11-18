@@ -13,6 +13,7 @@ defmodule Feedx.Application do
       {Phoenix.PubSub, name: Feedx.PubSub},
       {Finch, name: Feedx.Finch},
       FeedxWeb.Endpoint,
+      {FeedxJob.Application, []},
       {FcFinch.Application, []}
     ]
 

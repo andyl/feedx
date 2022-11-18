@@ -1,1 +1,0 @@
-<%= @subs |> Jason.encode() |> elem(1) |> Jason.Formatter.pretty_print() %>

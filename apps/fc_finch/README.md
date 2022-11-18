@@ -1,4 +1,0 @@
-# FcFinch
-
-Finch HTTP Client
-

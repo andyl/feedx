@@ -38,7 +38,7 @@ defmodule Feedx.MixProject do
   defp deps do
     [
       # Web Server
-      # {:bandit, "~> 0.6"},
+      # {:bandit, "~> 0.6"}, - no metrics in dashboard...
       {:plug_cowboy, "~> 2.0"},
       # Web UI
       {:swoosh,                 "~> 1.3"},
@@ -67,8 +67,18 @@ defmodule Feedx.MixProject do
       {:telemetry_poller,  "~> 1.0"},
       {:ecto_psql_extras,  "~> 0.6"},
       # Fc
-      {:finch, "~> 0.13"},
       {:jason, "~> 1.2"},
+      # FcFinch
+      {:finch, "~> 0.13"},
+      # FcTesla
+      {:tesla,   "~> 1.4"},
+      {:hackney, "~> 1.18"},
+      # FcRss
+      {:elixir_feed_parser, github: "andyl/elixir-feed-parser"},
+      {:exvcr, "~> 0.12", only: [:test]},
+      # FeedxJob
+      {:quantum, "~> 3.3"},
+      {:timex, "~> 3.0"},
     ]
   end
 

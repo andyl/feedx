@@ -4,7 +4,7 @@
 
 Feedx Features
 - [x] Phoenix 1.7 rewrite 
-- [ ] Tailwind 
+- [x] Tailwind 
 - [ ] New component tooling with slots 
 - [ ] User accounts / auth / email confirmation 
 - [ ] Simultaneous login count 
@@ -74,8 +74,8 @@ Features
 - [x] Test Account Context
 - [x] Build News Context
 - [x] Test News Context
-- [x] Add FeedexJobs.scan(url)
-- [x] Add FeedexJobs.update(url)
+- [x] Add FeedxJobs.scan(url)
+- [x] Add FeedxJobs.update(url)
 - [x] Add FeedexRunner
 - [x] Add FeedexRunner.start()
 - [x] Add FeedexRunner.stop()
@@ -186,7 +186,7 @@ Editing Design Notes:
 ## 2019 Sep 09 Mon
 
 - [x] Setup seeds with real URLs
-- [x] Create `FeedexJob.sync`
+- [x] Create `FeedxJob.sync`
 - [x] Import live posts
 - [x] Add manual sync button for feed
 - [x] VIEWING: View post
@@ -319,7 +319,7 @@ Editing Design Notes:
 ## 2021 Feb 09 Tue
 
 - [x] Add Cyprus
-- [x] Add FeedexJob
+- [x] Add FeedxJob
 
 ## 2021 Feb 10 Wed
 
@@ -477,7 +477,7 @@ Goal: reduce the number of database queries in the life-cycle
 - [x] Create Feed
 - [x] Edit Folder
 - [x] Edit Feed
-- [x] FeedexJob: Get cron working...
+- [x] FeedxJob: Get cron working...
 - [x] Settings: Subscription Display (text)
 - [x] Remove archive code
 - [x] Merge to Dev
@@ -611,13 +611,13 @@ Notes
 
 - [x] Try `getch` fix 
 - [x] Restart test runner 
+- [x] Import feeds 
+- [x] Import production feed 
+- [x] Bring over fc_tesla (dependency, code, test) 
+- [x] Bring over fc_rss (dependency, code, test) 
+- [x] Bring over feedex_job (dependency, code, test, application) 
 
 ## Next Steps 
 
-- [ ] Import feeds 
-- [ ] Import production feed 
-
-- [ ] Bring over fc_rss 
-- [ ] Bring over fc_tesla 
-- [ ] Bring over feedex_job 
+- [ ] Build out the UI 
 

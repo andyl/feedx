@@ -30,7 +30,23 @@ config :feedx, FeedxWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :feedx, Feedx.Mailer, adapter: Swoosh.Adapters.Local
 
-# Configure esbuild (the version is required)
+# ----- FeedexJob
+
+config :feedx_job,
+  env: Mix.env()
+
+config :feedx_job, FeedxJob.Scheduler,
+  jobs: [
+    # {"*/15 * * * *",   fn -> System.cmd("rm", ["/tmp/tmp_"]) end},
+    # {"0 18-6/2 * * *", fn -> :mnesia.backup('/var/backup/mnesia') end},
+    # {"@daily",         {Backup, :backup, []}}
+    # {"* * * * *",      {IO, :puts, ["CRON JOB"]}}
+    # {"* * * * *",        {FeedexCore.Metrics.AppPoller, :post_counts, []}},
+    {"*/2 * * * *",      {FeedxJob, :sync_next, []}}
+  ]
+
+# ----- Esbuild
+
 config :esbuild,
   version: "0.14.41",
   default: [
