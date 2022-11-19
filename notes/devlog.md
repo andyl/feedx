@@ -622,11 +622,11 @@ Notes
 - [x] Build out the UI 
 - [x] Fix LSP (Elixir / Dialyzer) 
 - [x] Get Tree working clean 
+- [x] Get favicon working 
 
 ## Next Steps 
 
+- [ ] Clean up header 
 - [ ] Get broadcasts working 
 - [ ] Get Body working clean 
-- [ ] Get favicon working 
-- [ ] Clean up header 
 - [ ] Remove `feedex_ui` directory 
