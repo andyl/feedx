@@ -1,6 +1,6 @@
 defmodule FeedxWeb.SubTreeLive do
   @moduledoc """
-  Renders the SubTreeLive page.
+  This LiveView is for importing a JSON data structure with subscription settings.
   """
 
   use FeedxWeb, :live_view

@@ -620,11 +620,12 @@ Notes
 ## 2022 Nov 18 Fri
 
 - [x] Build out the UI 
-- [x] Fix LSP (Elixir / Dialyzer)
+- [x] Fix LSP (Elixir / Dialyzer) 
+- [x] Get Tree working clean 
 
 ## Next Steps 
 
-- [ ] Get Tree working clean 
+- [ ] Get broadcasts working 
 - [ ] Get Body working clean 
 - [ ] Get favicon working 
 - [ ] Clean up header 
