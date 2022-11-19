@@ -13,41 +13,7 @@
     </script>
   </head>
   <body class="bg-white antialiased">
-    <FeedxWeb.HdrComponents.nav user={@current_user} />
-    <div class="bg-slate-200">
-      <div>Feedx</div>
-      <div>
-        <ul>
-          <%= if @current_user do %>
-            <li>
-              <%= @current_user.email %>
-            </li>
-            <li>
-              <.alink href={~p"/news"}>News</.alink>
-            </li>
-            <li>
-              <.alink href={~p"/users/settings"}>Settings</.alink>
-            </li>
-            <li>
-              <.link
-                class="underline decoration-blue-400 decoration-2"
-                href={~p"/users/log_out"}
-                method="delete"
-              >
-                Log out
-              </.link>
-            </li>
-          <% else %>
-            <li>
-              <.alink href={~p"/users/register"}>Register</.alink>
-            </li>
-            <li>
-              <.alink href={~p"/users/log_in"}>Log in</.alink>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+    <FeedxWeb.HdrComponents.nav current_user={@current_user} />
     <%= @inner_content %>
   </body>
 </html>
