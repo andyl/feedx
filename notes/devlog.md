@@ -5,7 +5,7 @@
 Feedx Features
 - [x] Phoenix 1.7 rewrite 
 - [x] Tailwind 
-- [ ] New component tooling with slots 
+- [ ] New component tooling with slots and attributes
 - [ ] User accounts / auth / email confirmation 
 - [ ] Simultaneous login count 
 - [ ] Metrics: prometheus, loki, tempo 
@@ -623,10 +623,10 @@ Notes
 - [x] Fix LSP (Elixir / Dialyzer) 
 - [x] Get Tree working clean 
 - [x] Get favicon working 
+- [x] Clean up header 
 
 ## Next Steps 
 
-- [ ] Clean up header 
 - [ ] Get broadcasts working 
 - [ ] Get Body working clean 
 - [ ] Remove `feedex_ui` directory 
