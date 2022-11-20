@@ -21,7 +21,7 @@ defmodule FeedxWeb.HdrComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="desktop-only" style="background-color: lightgray; padding: 5px; padding-right: 20px;">
+    <div class="desktop-only bg-slate-400" style="padding: 5px; padding-right: 20px;">
       <%= if @uistate.mode == "view" do %>
         <div class='d-flex'>
           <div class='flex-grow-1'>

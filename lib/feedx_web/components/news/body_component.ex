@@ -11,7 +11,8 @@ defmodule FeedxWeb.BodyComponent do
   use Phoenix.LiveComponent
 
   alias FeedxWeb.{BodyAddFeedComponent, BodyAddFolderComponent}
-  alias FeedxWeb.{BodyEditFeedComponent, BodyEditFolderComponent}
+  # alias FeedxWeb.{BodyEditFeedComponent, BodyEditFolderComponent}
+  alias FeedxWeb.{BodyEditFeedComponent}
   alias FeedxWeb.{BodyViewComponent}
 
   def render(assigns) do
@@ -32,7 +33,7 @@ defmodule FeedxWeb.BodyComponent do
         "add_feed"    -> live_component(BodyAddFeedComponent,    opts(counts, uistate, "afee"))
         "add_folder"  -> live_component(BodyAddFolderComponent,  opts(counts, uistate, "afol"))
         "edit_feed"   -> live_component(BodyEditFeedComponent,   opts(counts, uistate, "efee"))
-        "edit_folder" -> live_component(BodyEditFolderComponent, opts(counts, uistate, "efol"))
+        # "edit_folder" -> live_component(BodyEditFolderComponent, opts(counts, uistate, "efol"))
         _             -> live_component(BodyViewComponent,       opts(counts, uistate, "view"))
       end
     end

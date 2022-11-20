@@ -13,6 +13,7 @@ defmodule FeedxWeb.HdrComponents do
     ~H"""
     <div class="navbar bg-neutral text-neutral-content">
       <div class="flex-1">
+        <img src="/images/rss.png"/>
         <a class="btn btn-ghost normal-case text-xl" href="/">Feedx</a>
       </div>
       <div class="flex-none">

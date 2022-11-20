@@ -5,16 +5,32 @@
 Feedx Features
 - [x] Phoenix 1.7 rewrite 
 - [x] Tailwind 
-- [ ] New component tooling with slots and attributes
+- [x] New component tooling with slots and attributes 
 - [ ] User accounts / auth / email confirmation 
 - [ ] Simultaneous login count 
 - [ ] Metrics: prometheus, loki, tempo 
 - [ ] Full-text search 
 - [ ] Docker releases 
 - [ ] Mobile interface 
+- [ ] Vim-style Keyboard mode 
+- [ ] Convert from PETS to CubDB
 
-Other TODOs
+Basics 
+- [ ] Display post 
+- [ ] Icon | Mark all 
+- [ ] Icon | Add Folder/Feed 
+- [ ] Icon | Refresh 
+- [ ] Icon | Edit (pencil) 
+- [ ] Add Folder 
+- [ ] Add Feed 
+- [ ] Finish layout 
+- [ ] Generate docs 
+- [ ] Convert to Feedex 
+- [ ] Use in production 
+
+Networking 
 - [ ] Setup DNS, ssl, reverse-proxy on chap
+- [ ] Selective Wireguard routing - only chap apps 
 - [ ] Test with travel router and phone 
 
 Cleanup 
@@ -625,8 +641,14 @@ Notes
 - [x] Get favicon working 
 - [x] Clean up header 
 
+## 2022 Nov 19 Sat
+
+- [x] Get broadcasts working 
+- [x] Get Body working clean 
+- [x] Remove `feedex_ui` directory 
+- [x] Remove gap 
+- [x] Show logo 
+- [x] Show favicon 
+
 ## Next Steps 
 
-- [ ] Get broadcasts working 
-- [ ] Get Body working clean 
-- [ ] Remove `feedex_ui` directory 

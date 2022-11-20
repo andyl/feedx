@@ -8,7 +8,6 @@ defmodule FeedxWeb.TreeComponent do
 
   """
 
-  # compare to PragStudio - `use FeedexUi.view, :live_component`
   use Phoenix.LiveComponent
 
   alias Phoenix.HTML
@@ -18,7 +17,7 @@ defmodule FeedxWeb.TreeComponent do
   def render(assigns) do
     open_folder = get_open_fld(assigns.treemap, assigns.uistate)
     ~H"""
-    <div class='mt-2 desktop-only'>
+    <div class='mt-2'>
       <%= all_btn(@uistate, @myself) %> <%= unread(@counts.all, :raw) %><br/>
       <small>
       <%= for folder <- @treemap do %>
@@ -33,7 +32,7 @@ defmodule FeedxWeb.TreeComponent do
         <% end %>
       <% end %>
       </small>
-      <%# HTML.raw state_table(@uistate) %>
+      <%= HTML.raw state_table(@uistate) %>
     </div>
     """
   end
@@ -42,9 +41,9 @@ defmodule FeedxWeb.TreeComponent do
 
   def gen_counts(user_id) do
     %{
-      all: FeedexCore.Ctx.News.unread_count_for(user_id),
-      fld: FeedexCore.Ctx.News.unread_aggregate_count_for(user_id, type: "fld"),
-      reg: FeedexCore.Ctx.News.unread_aggregate_count_for(user_id, type: "reg")
+      all: Feedx.Ctx.News.unread_count_for(user_id),
+      fld: Feedx.Ctx.News.unread_aggregate_count_for(user_id, type: "fld"),
+      reg: Feedx.Ctx.News.unread_aggregate_count_for(user_id, type: "reg")
     }
   end
 
@@ -132,7 +131,7 @@ defmodule FeedxWeb.TreeComponent do
   defp get_fld(treemap, regid) do
     case regid do
       nil -> nil
-      id when is_number(id) -> FeedexCore.Util.Treemap.register_parent_id(treemap, id)
+      id when is_number(id) -> Feedx.Util.Treemap.register_parent_id(treemap, id)
       _ -> nil
     end
   end
@@ -140,7 +139,7 @@ defmodule FeedxWeb.TreeComponent do
   def state_table(uistate) do
     """
       <hr/>
-      <table class='table table-sm'>
+      <table>
         <tr><td>Mode</td> <td>#{uistate.mode}</td></tr>
         <tr><td>UsrId</td><td>#{uistate.usr_id}</td></tr>
         <tr><td>FldId</td><td>#{uistate.fld_id}</td></tr>
@@ -197,9 +196,9 @@ defmodule FeedxWeb.TreeComponent do
   def handle_event("mark-read", _click, socket) do
     # FeedexWeb.News.Hdr.mark_all_read(socket.assigns.uistate)
 
-    FeedexUi.Endpoint.broadcast_from(self(), "read_all", "mark-read", %{})
+    FeedxWeb.Endpoint.broadcast_from(self(), "read_all", "mark-read", %{})
 
-    treemap = FeedexCore.Api.SubTree.cleantree(socket.assigns.uistate.usr_id)
+    treemap = Feedx.Api.SubTree.cleantree(socket.assigns.uistate.usr_id)
     counts = gen_counts(socket.assigns.uistate.usr_id)
 
     {:noreply, assign(socket, %{treemap: treemap, counts: counts})}

@@ -74,268 +74,248 @@ defmodule FeedxWeb.NewsLive do
 
   # ----- message handlers -----
 
-  # @impl true
-  # def handle_info({"set_uistate", %{uistate: new_state, recount: true}}, socket) do
-  #   new_counts = gen_counts(socket.assigns.current_user.id)
-  #
-  #   {:noreply, assign(socket, uistate: new_state, counts: new_counts)}
-  # end
-  #
-  # @impl true
-  # def handle_info({"set_uistate", %{uistate: new_state}}, socket) do
-  #   {:noreply, assign(socket, uistate: new_state)}
-  # end
-  #
-  # @impl true
-  # def handle_info("mod_tree", socket) do
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     fld_id: nil,
-  #     reg_id: nil
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     counts: gen_counts(user.id),
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info("rename_folder", socket) do
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     reg_id: nil
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info("delete_folder", socket) do
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     fld_id: nil,
-  #     reg_id: nil
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  #
-  # @impl true
-  # def handle_info("rename_feed", socket) do
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     fld_id: nil
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info({"delete_feed", %{fld_id: fld_id}}, socket) do
-  #
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     reg_id: nil,
-  #     fld_id: fld_id
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     counts: gen_counts(user.id),
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info({"new_feed", %{reg_id: reg_id}}, socket) do
-  #
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     reg_id: reg_id,
-  #     fld_id: nil
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info({"new_folder", %{fld_id: fld_id}}, socket) do
-  #
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     reg_id: nil,
-  #     fld_id: fld_id
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info("refolder_feed", socket) do
-  #   user = socket.assigns.current_user
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   new_opts = %{
-  #     mode: "view",
-  #     pst_id: nil,
-  #     fld_id: nil
-  #   }
-  #
-  #   new_state =
-  #     socket.assigns.uistate
-  #     |> Map.merge(new_opts)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     uistate: new_state
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info("mark_all_read", socket) do
-  #   opts = %{counts: gen_counts(socket.assigns.current_user.id)}
-  #   {:noreply, assign(socket, opts)}
-  # end
-  #
-  # @impl true
-  # def handle_info("SYNC_FEED", socket) do
-  #
-  #   user = socket.assigns.current_user
-  #
-  #   Logger.info("RECEIVE SYNC_FEED")
-  #
-  #   treemap = FeedexCore.Api.SubTree.cleantree(user.id)
-  #
-  #   opts = %{
-  #     treemap: treemap,
-  #     counts: gen_counts(user.id),
-  #   }
-  #
-  #   {:noreply, assign(socket, opts)}
-  # end
+  @impl true
+  def handle_info({"set_uistate", %{uistate: new_state, recount: true}}, socket) do
+    new_counts = gen_counts(socket.assigns.current_user.id)
 
-  # @impl true
-  # def handle_info(default, socket) do
-  #   IO.inspect default, label: "DEFAULT PARAMS"
-  #   IO.inspect socket, label: "DEFAULT SOCKET"
-  #   {:noreply, socket}
-  # end
+    {:noreply, assign(socket, uistate: new_state, counts: new_counts)}
+  end
 
+  @impl true
+  def handle_info({"set_uistate", %{uistate: new_state}}, socket) do
+    {:noreply, assign(socket, uistate: new_state)}
+  end
 
+  @impl true
+  def handle_info("mod_tree", socket) do
+    user = socket.assigns.current_user
 
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
 
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      fld_id: nil,
+      reg_id: nil
+    }
 
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
 
+    opts = %{
+      treemap: treemap,
+      counts: gen_counts(user.id),
+      uistate: new_state
+    }
 
+    {:noreply, assign(socket, opts)}
+  end
 
+  @impl true
+  def handle_info("rename_folder", socket) do
+    user = socket.assigns.current_user
 
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
 
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      reg_id: nil
+    }
 
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
 
+    opts = %{
+      treemap: treemap,
+      uistate: new_state
+    }
 
+    {:noreply, assign(socket, opts)}
+  end
 
+  @impl true
+  def handle_info("delete_folder", socket) do
+    user = socket.assigns.current_user
 
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
 
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      fld_id: nil,
+      reg_id: nil
+    }
 
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
 
+    opts = %{
+      treemap: treemap,
+      uistate: new_state
+    }
 
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info("rename_feed", socket) do
+    user = socket.assigns.current_user
+
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
+
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      fld_id: nil
+    }
+
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
+
+    opts = %{
+      treemap: treemap,
+      uistate: new_state
+    }
+
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info({"delete_feed", %{fld_id: fld_id}}, socket) do
+
+    user = socket.assigns.current_user
+
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
+
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      reg_id: nil,
+      fld_id: fld_id
+    }
+
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
+
+    opts = %{
+      treemap: treemap,
+      counts: gen_counts(user.id),
+      uistate: new_state
+    }
+
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info({"new_feed", %{reg_id: reg_id}}, socket) do
+
+    user = socket.assigns.current_user
+
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
+
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      reg_id: reg_id,
+      fld_id: nil
+    }
+
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
+
+    opts = %{
+      treemap: treemap,
+      uistate: new_state
+    }
+
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info({"new_folder", %{fld_id: fld_id}}, socket) do
+
+    user = socket.assigns.current_user
+
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
+
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      reg_id: nil,
+      fld_id: fld_id
+    }
+
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
+
+    opts = %{
+      treemap: treemap,
+      uistate: new_state
+    }
+
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info("refolder_feed", socket) do
+    user = socket.assigns.current_user
+
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
+
+    new_opts = %{
+      mode: "view",
+      pst_id: nil,
+      fld_id: nil
+    }
+
+    new_state =
+      socket.assigns.uistate
+      |> Map.merge(new_opts)
+
+    opts = %{
+      treemap: treemap,
+      uistate: new_state
+    }
+
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info("mark_all_read", socket) do
+    opts = %{counts: gen_counts(socket.assigns.current_user.id)}
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info("SYNC_FEED", socket) do
+
+    user = socket.assigns.current_user
+
+    Logger.info("RECEIVE SYNC_FEED")
+
+    treemap = Feedx.Api.SubTree.cleantree(user.id)
+
+    opts = %{
+      treemap: treemap,
+      counts: gen_counts(user.id),
+    }
+
+    {:noreply, assign(socket, opts)}
+  end
+
+  @impl true
+  def handle_info(default, socket) do
+    IO.inspect default, label: "DEFAULT PARAMS"
+    IO.inspect socket, label: "DEFAULT SOCKET"
+    {:noreply, socket}
+  end
 
 end
