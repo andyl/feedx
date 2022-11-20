@@ -1,22 +1,25 @@
 defmodule FeedxWeb.BodyAddFolderComponent do
   @moduledoc """
-  Renders the body view component.
+  Renders the body add folder component.
 
   Call using:
 
-      <%= live_component(@socket, FeedexUi.BodyComponent, uistate: @uistate) %>
+      <%= live_component(FeedxWeb.BodyAddFolderComponent, uistate: @uistate) %>
 
   """
 
   alias Feedx.Ctx.Account
   alias Feedx.Api
 
-  import Phoenix.HTML.Form
+  import FeedxWeb.CoreComponents
+
+  # import Phoenix.HTML.Form
+
   # import FeedxWeb.ErrorHelpers
 
   use Phoenix.LiveComponent
 
-  # import FeedexUi.IconHelpers
+  # import FeedxWeb.IconHelpers
 
   # ----- lifecycle callbacks -----
 
@@ -32,26 +35,21 @@ defmodule FeedxWeb.BodyAddFolderComponent do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div>
-    <H1>Create a new Folder</H1>
-    <div>
-    <%= f = form_for @changeset, "#", [phx_target: "#{@myself}", phx_change: :validate, phx_submit: :save] %>
-
-      <div class="form-group">
-        <%= text_input f, :name, placeholder: "Enter a folder name...", class: "form-control" %>
-        <%# error_tag f, :name %>
+    <div class="font-bold">Create a new Folder</div>
+      <div>
+        <.simple_form :let={f} for={@changeset} phx-target={@myself} phx-change="validate" phx-submit="save">
+          <.input field={{f, :name}} label="Folder Name" />
+          <:actions>
+            <%= if @changeset.valid? do %>
+              <.button>Save</.button>
+            <% else %>
+              <.button class="line-through">Save</.button>
+            <% end %>
+          </:actions>
+        </.simple_form>
       </div>
-
-      <%= if @changeset.valid? do %>
-        <
-        %= submit "Create a Folder", class: "btn btn-primary" %>
-      <% else %>
-        <button style='pointer-events: none;' class="btn btn-primary disabled">Create a Folder</button>
-      <% end %>
-    </form>
-
-    </div>
     </div>
     """
   end

@@ -16,13 +16,6 @@ Feedx Features
 - [ ] Convert from PETS to CubDB
 
 Basics 
-- [ ] Display post 
-- [ ] Icon | Mark all 
-- [ ] Icon | Add Folder/Feed 
-- [ ] Icon | Refresh 
-- [ ] Icon | Edit (pencil) 
-- [ ] Add Folder 
-- [ ] Add Feed 
 - [ ] Finish layout 
 - [ ] Generate docs 
 - [ ] Convert to Feedex 
@@ -649,6 +642,15 @@ Notes
 - [x] Remove gap 
 - [x] Show logo 
 - [x] Show favicon 
+- [x] Icon | Mark all 
+- [x] Icon | Add Folder/Feed 
+- [x] Icon | Refresh 
+- [x] Icon | Edit (pencil) 
+- [x] Display post 
+- [x] Add Folder 
+- [x] Add Feed 
 
 ## Next Steps 
 
+- [ ] Edit Folder 
+- [ ] Edit Feed 

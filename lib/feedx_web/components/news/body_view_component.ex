@@ -14,6 +14,7 @@ defmodule FeedxWeb.BodyViewComponent do
   use Phoenix.LiveComponent
 
   import FeedxWeb.BootstrapIconHelpers
+  import FeedxWeb.AppComponents
 
   # ----- lifecycle callbacks -----
 
@@ -32,25 +33,28 @@ defmodule FeedxWeb.BodyViewComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <table class="table text-sm table-auto ">
+      <table class="table-auto">
         <%= for post <- @posts do %>
           <%= if @uistate.pst_id == post.id do %>
-            <tr style='background-color: lightgrey;'>
-              <td><%= check_svg('inline px-1 h-3', :raw) %></td>
+            <tr class="bg-slate-300">
+              <td><%= check_svg("inline px-1 h-3", :raw) %></td>
               <td><b><%= id_link(post.id, @myself) %></b></td>
               <td>
                 <b>
-                <a href='{ post.link }' class='bluelink' target='_blank'>
+                <.alink href={post.link} {%{target: '_blank'}}>
                 <%= time_ago(post.updated_at) %><%= post.title %>
-                </a>
+                </.alink>
                 </b>
                 </td>
             </tr>
-            <tr style='background-color: lightgrey;'><td>
+            <tr class="bg-slate-300">
+            <td></td><td></td>
+            <td>
               <small>
               <%= byline(post) %> <%= HTML.raw post.body %>
               </small>
-            </td></tr>
+            </td>
+            </tr>
           <% else %>
             <tr>
               <td>

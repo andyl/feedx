@@ -1,10 +1,10 @@
 defmodule FeedxWeb.BodyAddFeedComponent do
   @moduledoc """
-  Renders the body view component.
+  Renders the body add feed component.
 
   Call using:
 
-      <%= live_component(@socket, FeedxWeb.BodyComponent, uistate: @uistate) %>
+      <%= live_component(@socket, FeedxWeb.BodyAddFeedComponent, uistate: @uistate) %>
 
   """
 
@@ -14,7 +14,8 @@ defmodule FeedxWeb.BodyAddFeedComponent do
   # alias Feedx.Ctx.News.Feed
   alias Feedx.Repo
 
-  import Phoenix.HTML.Form
+  # import Phoenix.HTML.Form
+  import FeedxWeb.CoreComponents
   # import FeedxWeb.ErrorHelpers
   import Ecto.Query
 
@@ -33,32 +34,22 @@ defmodule FeedxWeb.BodyAddFeedComponent do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div>
-      <H1>Create a new Feed</H1>
-      <div>
-      <%= f = form_for @changeset, "#", [phx_target: "#{@myself}", phx_change: :validate, phx_submit: :save] %>
-
-        <div class="form-group">
-          <%= text_input f, :name, placeholder: "Enter a feed name...", class: "form-control" %>
-          <%# error_tag f, :name %>
-        </div>
-
-        <div class="form-group">
-          <%= text_input f, :url, placeholder: "Enter a url...", class: "form-control" %>
-          <%# error_tag f, :url %>
-        </div>
-
-        <div class="form-group">
-          <%= select f, :folder_id, folders_for(@uistate), class: "form-control" %>
-        </div>
-
-        <%= if @changeset.valid? do %>
-          <%= submit "Create a Feed", class: "btn btn-primary" %>
-        <% else %>
-          <button style='pointer-events: none;' class="btn btn-primary disabled">Create a Feed</button>
-        <% end %>
-      </form>
+      <div class="font-bold">Create a new Feed</div>
+    <div>
+      <.simple_form :let={f} for={@changeset} phx-target={@myself} phx-change="validate" phx-submit="save">
+        <.input field={{f, :name}} label="Feed Name" />
+        <.input field={{f, :url }} label="Feed Url" />
+        <.input type="select" field={{f, :folder_id }} options={folders_for(@uistate)} label="Folder" />
+        <:actions>
+          <%= if @changeset.valid? do %>
+            <.button>Save</.button>
+          <% else %>
+            <.button class="line-through">Save</.button>
+          <% end %>
+        </:actions>
+      </.simple_form>
     </div>
     </div>
     """
