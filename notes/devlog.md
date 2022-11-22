@@ -602,9 +602,14 @@ Goal: reduce the number of database queries in the life-cycle
 
 ## 2022 Nov 16 Wed
 
+Objectives 
+- Upgrade to Phx 1.7
+- Upgrade to LiveView 1.18
+- Convert CSS to Tailwind 
+
 Notes
 - Umbrella doesn't work with phx-1.7-rel0 
-- Rewriting as normal phoenix app
+- Rewriting as normal phoenix app - no umbrella 
 
 - [x] Bring over fc_finch library
 - [x] Test/Src navigation 
@@ -649,8 +654,9 @@ Notes
 - [x] Display post 
 - [x] Add Folder 
 - [x] Add Feed 
+- [x] Edit Folder 
+- [x] Edit Feed 
 
 ## Next Steps 
 
-- [ ] Edit Folder 
-- [ ] Edit Feed 
+- [ ] Get LiveEditable working 

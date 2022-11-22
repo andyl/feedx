@@ -1,10 +1,10 @@
 defmodule FeedxWeb.BodyEditFeedComponent do
   @moduledoc """
-  Renders the body view component.
+  Renders the body edit feed component.
 
   Call using:
 
-      <%= live_component(@socket, FeedexUi.BodyComponent, uistate: @uistate) %>
+      <%= live_component(FeedexUi.BodyEditFeedComponent, uistate: @uistate) %>
 
   """
 
@@ -73,12 +73,13 @@ defmodule FeedxWeb.BodyEditFeedComponent do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
+    <div>
     <h1>EDIT FEED</h1>
     <%= if @register do %>
       <table class="table">
-      <tr><td>Reg Name:</td><td><%# live_edit(assigns, @register.name, type: "text", id: "name", target: @myself, on_submit: "rename") %></td></tr>
-      <tr><td>Reg Folder:</td><td><%# live_edit(assigns, @folder.name, type: "select", options: @folders, target: @myself, id: "folder", on_submit: "refolder") %></td></tr>
+      <tr><td>Reg Name:</td><td>TBD<%# live_edit(assigns, @register.name, type: "text", id: "name", target: @myself, on_submit: "rename") %></td></tr>
+      <tr><td>Reg Folder:</td><td>TBD<%# live_edit(assigns, @folder.name, type: "select", options: @folders, target: @myself, id: "folder", on_submit: "refolder") %></td></tr>
       <tr><td>FeedUrl:</td><td><%= feed_link(@feed) %></td></tr>
       <tr><td>Usr/Registry ID:</td><td><%= @register.id %></td></tr>
       <tr><td>Attached Registries:</td><td><%= @feed_count %></td></tr>
@@ -86,8 +87,9 @@ defmodule FeedxWeb.BodyEditFeedComponent do
       <tr><td>Sync Count:</td><td><%= @feed.sync_count %></td></tr>
       </table>
     <p style='margin-bottom: 60px;'></p>
-    <button type="button" phx-click='delete' phx-target='<%= @myself %>' class="btn btn-danger">Delete Feed</button>
+    <button type="button" phx-click="delete" phx-target={@myself} class="btn btn-danger">Delete Feed</button>
     <% end %>
+    </div>
     """
   end
 

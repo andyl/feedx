@@ -15,6 +15,7 @@ defmodule FeedxWeb.BodyEditFolderComponent do
   alias Feedx.Repo
 
   import Ecto.Query
+  import FeedxWeb.CoreComponents
 
   # ----- lifecycle callbacks -----
 
@@ -38,7 +39,7 @@ defmodule FeedxWeb.BodyEditFolderComponent do
 
   @impl true
   def render(assigns) do
-    ~L"""
+    ~H"""
     <div>
       <h1>EDIT FOLDER</h1>
       <table class="table">
@@ -49,7 +50,7 @@ defmodule FeedxWeb.BodyEditFolderComponent do
       </table>
       <p style='margin-bottom: 60px;'></p>
       <%= if @feed_count == 0 do %>
-      <button type="button" phx-click='delete' phx-target='<%= @myself %>' class="btn btn-danger">Delete Folder</button>
+        <.button phx-click='delete' phx-target={@myself}>Delete Folder</.button>
       <% end %>
     </div>
     """
