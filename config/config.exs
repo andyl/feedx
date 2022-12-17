@@ -30,7 +30,7 @@ config :feedx, FeedxWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :feedx, Feedx.Mailer, adapter: Swoosh.Adapters.Local
 
-# ----- FeedexJob
+# ----- FeedxJob
 
 config :feedx_job,
   env: Mix.env()
