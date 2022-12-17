@@ -660,3 +660,5 @@ Notes
 ## Next Steps 
 
 - [ ] Get LiveEditable working 
+- [ ] Edit folder 
+- [ ] Edit feed 
