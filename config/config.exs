@@ -19,7 +19,8 @@ config :feedx, FeedxWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Feedx.PubSub,
-  live_view: [signing_salt: "57/ietvK"]
+  live_view: [signing_salt: "57/ietvK"],
+  live_editable: [ple_renderer: Phoenix.Editable.Renderer.Tailwind3]
 
 # Configures the mailer
 #

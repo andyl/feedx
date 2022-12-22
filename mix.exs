@@ -50,6 +50,7 @@ defmodule Feedx.MixProject do
       {:phoenix_live_reload,    "~> 1.2", only: :dev},
       {:heroicons,              "~> 0.5"},
       {:gettext,                "~> 0.20"},
+      {:phoenix_live_editable,  path: "~/lib/phoenix_live_editable/apps/phoenix_live_editable"},
       {:esbuild,                "~> 0.5", runtime: Mix.env() == :dev},
       {:tailwind,               "~> 0.1.8", runtime: Mix.env() == :dev},
       # Testing

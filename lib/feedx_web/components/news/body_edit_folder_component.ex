@@ -9,7 +9,7 @@ defmodule FeedxWeb.BodyEditFolderComponent do
   """
 
   use Phoenix.LiveComponent
-  # use Phoenix.LiveEditable
+  use Phoenix.LiveEditable.ViewUtil
   alias Feedx.Ctx.Account.Folder
   alias Feedx.Ctx.Account.Register
   alias Feedx.Repo
@@ -36,14 +36,14 @@ defmodule FeedxWeb.BodyEditFolderComponent do
     {:ok, assign(socket, opts)}
   end
 
-
   @impl true
   def render(assigns) do
     ~H"""
     <div>
       <h1>EDIT FOLDER</h1>
       <table class="table">
-        <tr><td>Folder Name:</td><td><%# live_edit(assigns, @folder.name, type: "text", id: "name", target: @myself, on_submit: "set_name") %></td></tr>
+        <tr><td>Folder Name1:</td><td><%# live_edit(assigns, @folder.name, type: "text", id: "name", target: @myself, on_submit: "set_name") %></td></tr>
+        <tr><td>Folder Name2:</td><td><.live_component module={Phoenix.Editable.Base} ple-data={@folder.name} id="kname"/></td></tr>
         <tr><td>Stopwords:</td><td><%# live_edit(assigns, @folder.stopwords || "NA", type: "text", id: "stopwords", target: @myself, on_submit: "set_stopwords") %></td></tr>
         <tr><td>Folder ID:</td><td><%= @folder.id %></td></tr>
         <tr><td>Num Feeds:</td><td><%= @feed_count %></td></tr>
@@ -68,6 +68,18 @@ defmodule FeedxWeb.BodyEditFolderComponent do
     send(self(), "rename_folder")
     {:noreply, socket}
   end
+
+  # @impl true
+  # def handle_event("alt_name", data, socket) do
+  #   IO.inspect(data, label: "TONKA")
+  #   # Folder
+  #   # |> Repo.get(socket.assigns.uistate.fld_id)
+  #   # |> Ecto.Changeset.change(name: newname)
+  #   # |> Repo.update()
+  #   #
+  #   # send(self(), "rename_folder")
+  #   {:noreply, socket}
+  # end
 
   def handle_event("set_stopwords", %{"editable_text" => new_words}, socket) do
     cleanwords =
