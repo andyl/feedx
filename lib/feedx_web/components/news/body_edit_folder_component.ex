@@ -9,7 +9,6 @@ defmodule FeedxWeb.BodyEditFolderComponent do
   """
 
   use Phoenix.LiveComponent
-  use Phoenix.LiveEditable.ViewUtil
   alias Feedx.Ctx.Account.Folder
   alias Feedx.Ctx.Account.Register
   alias Feedx.Repo
@@ -42,8 +41,7 @@ defmodule FeedxWeb.BodyEditFolderComponent do
     <div>
       <h1>EDIT FOLDER</h1>
       <table class="table">
-        <tr><td>Folder Name1:</td><td><%# live_edit(assigns, @folder.name, type: "text", id: "name", target: @myself, on_submit: "set_name") %></td></tr>
-        <tr><td>Folder Name2:</td><td><.live_component module={Phoenix.Editable.Base} ple-data={@folder.name} id="kname"/></td></tr>
+        <tr><td>Folder Name:</td><td><.live_component module={Phoenix.Editable.Base} ple_submit="rename_folder" ple_data={@folder.name} id="fname"/></td></tr>
         <tr><td>Stopwords:</td><td><%# live_edit(assigns, @folder.stopwords || "NA", type: "text", id: "stopwords", target: @myself, on_submit: "set_stopwords") %></td></tr>
         <tr><td>Folder ID:</td><td><%= @folder.id %></td></tr>
         <tr><td>Num Feeds:</td><td><%= @feed_count %></td></tr>

@@ -4,7 +4,9 @@ defmodule FeedxWeb.NewsLive do
   """
 
   use FeedxWeb, :live_view
+  alias Feedx.Ctx.Account.Folder
   alias FeedxWeb.Cache.UiState
+  alias Feedx.Repo
 
   require Logger
 
@@ -113,7 +115,12 @@ defmodule FeedxWeb.NewsLive do
   end
 
   @impl true
-  def handle_info("rename_folder", socket) do
+  def handle_info({"rename_folder", %{"data" => newname}}, socket) do
+    Folder
+    |> Repo.get(socket.assigns.uistate.fld_id)
+    |> Ecto.Changeset.change(name: newname)
+    |> Repo.update()
+
     user = socket.assigns.current_user
 
     treemap = Feedx.Api.SubTree.cleantree(user.id)
@@ -313,8 +320,10 @@ defmodule FeedxWeb.NewsLive do
 
   @impl true
   def handle_info(default, socket) do
+    IO.puts("<<<<< DEFAULT HANDLE_INFO START >>>>>")
     IO.inspect default, label: "DEFAULT PARAMS"
     IO.inspect socket, label: "DEFAULT SOCKET"
+    IO.puts("<<<<< DEFAULT HANDLE_INFO STOP >>>>>")
     {:noreply, socket}
   end
 
